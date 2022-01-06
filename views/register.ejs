@@ -1,0 +1,226 @@
+<html>
+
+<head>
+    <title>Sign up</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: lightgray;
+        }
+
+        h1 {
+            font: Footlight MT;
+            font-size: 35px;
+            text-align: center;
+
+        }
+
+        .modal-content {
+
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
+
+            width: 90%;
+            /* Could be more or less, depending on screen size */
+        }
+
+
+        a:hover {
+            font-size: 18px;
+            color: red;
+            text-decoration: underline;
+        }
+
+        .c:hover {
+            box-shadow: 3px 3px 2px 2px;
+        }
+
+        p {
+            font-family: Footlight MT;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container modal-content c">
+        <h1>Registration Form</h1>
+        <p>Please fill in this form to create an account.</p>
+
+        <% if (typeof error10 !=='undefined' && error10.length> 0) { %>
+            <div style="color: red;">
+                <%= error10 %>
+            </div>
+            <% } %>
+                <form action="/signup" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+
+                                <label for="fristname">Firstname:</label>
+                                <input type="text" name="first_name" id="first_name" class="form-control input-sm"
+                                    placeholder="First Name" value="<%= values.first_name %>">
+                                <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error1 %>
+                                    </div>
+                                    <% } %>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="lastname">Lastname:</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control input-sm"
+                                    placeholder="Last Name" value="<%= values.last_name %>">
+                                <% if (typeof error2 !=='undefined' && error2.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error2 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="text" class="form-control input-sm" name="email" id="emailid"
+                                    placeholder="Enter Email address" value="<%= values.email %>">
+                                <% if (typeof error3 !=='undefined' && error3.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error3 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="phone">Phone Number:</label>
+                                <input type="text" class="form-control input-sm" name="phone" id="phoneno"
+                                    placeholder="Enter Phone Number" value="<%= values.phone %>">
+                                <% if (typeof error4 !=='undefined' && error4.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error4 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="psw">Password:</label>
+                                <input type="password" name="password" id="password" class="form-control input-sm"
+                                    placeholder="Password" value="<%= values.password %>">
+                                <% if (typeof error5 !=='undefined' && error5.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error5 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="psw">Repassword:</label>
+                                <input type="password" name="repassword" id="repassword" class="form-control input-sm"
+                                    placeholder="Confirm Password" value="<%= values.repassword %>">
+                                <% if (typeof error6 !=='undefined' && error6.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error6 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="gender">Gender:</label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" value="Male"
+                                        <%=values.gender=='Male' ? 'checked' :'' %>>
+                                    <span class="form-check-label"> Male
+                                    </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" value="Female"
+                                        <%=values.gender=="Female" ? 'checked' :'' %>>
+                                    <span class="form-check-label">
+                                        Female</span>
+                                </label>
+                                <% if (typeof error7 !=='undefined' && error7.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error7 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Profile Picture : </label>
+                        <input class="form-group" placeholder="Select pic" name="profile" type="file">
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Country : </label>
+                            <select id="inputState" name="country" class="form-control">
+                                <option value="" disabled="disabled" selected="true"> Choose...</option>
+                                <option value="Canada" <%=values.country=="Canada" ? 'checked' :'' %>>Canada
+                                </option>
+                                <option value="France" <%=values.country=="France" ? 'checked' :'' %>>France
+                                </option>
+                                <option value="Germany" <%=values.country=="Germany" ? 'checked' :'' %>>Germany
+                                </option>
+                                <option value="India" <%=values.country=="India" ? 'checked' :'' %>>India
+                                </option>
+                                <option value="United-States" <%=values.country=="United-States" ? 'checked' :'' %>
+                                    >United
+                                    States</option>
+                            </select>
+                            <% if (typeof error8 !=='undefined' && error8.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error8 %>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Hobbies : </label><br>
+                            <input type="checkbox" id="Traveling" name="hobbies" value="Traveling"
+                                <%=values.hobbies=="Traveling" ? 'checked' :'' %>>
+                            <label for="Traveling"> Traveling</label><br>
+                            <input type="checkbox" id="Reading" name="hobbies" value="Reading"
+                                <%=values.hobbies=="Reading" ? 'checked' :'' %>>
+                            <label for="Reading">Reading</label><br>
+                            <input type="checkbox" id="Television" name="hobbies" value="Television"
+                                <%=values.hobbies=="Television" ? 'checked' :'' %>>
+                            <label for="Television">Television</label>
+                            <% if (typeof error9 !=='undefined' && error9.length> 0) { %>
+                                <div style="color: red;">
+                                    <%= error9 %>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <button type="submit" class="btn btn-success">Register</button>
+                            <a href="/" class="btn btn-danger">cancel</a>
+                        </div>
+
+</body>
+
+</html>

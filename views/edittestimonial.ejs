@@ -1,0 +1,143 @@
+<html>
+
+<head>
+    <title>Edit Testimonial</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: lightgray;
+        }
+
+        h1 {
+            font: Footlight MT;
+            font-size: 35px;
+            text-align: center;
+
+        }
+
+        .modal-content {
+
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
+
+            width: 90%;
+            /* Could be more or less, depending on screen size */
+        }
+
+
+        a:hover {
+            font-size: 18px;
+            color: red;
+            text-decoration: underline;
+        }
+
+        .c:hover {
+            box-shadow: 3px 3px 2px 2px;
+        }
+
+        p {
+            font-family: Footlight MT;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container modal-content c">
+        <h1>Edit Testimonial</h1>
+
+
+        <% if (typeof error10 !=='undefined' && error10.length> 0) { %>
+            <div style="color: red;">
+                <%= error10 %>
+            </div>
+            <% } %>
+                <form action="/updatetestimonial/<%=values._id%>" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+
+                                <label for="fristname">name:</label>
+                                <input type="text" name="name" id="name" class="form-control input-sm"
+                                    placeholder="Enter Name" value="<%= values.name %>">
+                                <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error1 %>
+                                    </div>
+                                    <% } %>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="lastname">Designation:</label>
+                                <input type="text" name="designation" id="designation" class="form-control input-sm"
+                                    placeholder="Enter Designation" value="<%= values.designation %>">
+                                <% if (typeof error2 !=='undefined' && error2.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error2 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" rows="3" name="description"
+                                    placeholder=" Enter Description"
+                                    value="<%= values.description %>"><%= values.description %></textarea>
+                                <% if (typeof error3 !=='undefined' && error3.length> 0) { %>
+                                    <div style="color: red;">
+                                        <%= error3 %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Uploaded Image : </label>
+
+                                <img src="/<%= values.profile %>" style="height:20%;" alt="user image">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label>Edit Image</label>
+                                    <input class="form-group" placeholder="Select pic" name="profile" type="file">
+                                    <% if (typeof error4 !=='undefined' && error4.length> 0) { %>
+                                        <div style="color: red;">
+                                            <%= error4 %>
+                                        </div>
+                                        <% } %>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <button type="submit" class="btn btn-success">Update</button>
+                            <a href="/testimonial" class="btn btn-danger">cancel</a>
+                        </div>
+                    </div>
+</body>
+
+</html>

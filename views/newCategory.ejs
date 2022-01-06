@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title> Add Category</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        .loginbox {
+            border-radius: 20px;
+            background: #ffffff;
+            top: 50%;
+            left: 50%;
+            padding: 20px;
+            width: 400px;
+            height: 320px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container loginbox">
+        <h1 align="center">Add Category</h1>
+        <% if (typeof error10 !=='undefined' && error10.length> 0) { %>
+            <div style="color: red;">
+                <%= error10 %>
+            </div>
+            <% } %>
+
+                <form action="addCategory" method="post">
+                    <div class="form-group">
+                        <label for="username">Category Name</label>
+                        <input type="text" class="form-control" name="category" id="category"
+                            placeholder="Enter category name">
+                        <% if (typeof error1 !=='undefined' && error1.length> 0) { %>
+                            <div style="color: red;">
+                                <%= error1 %>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Add</button>
+                    <a href="/dashboard" class="btn btn-danger">Cancel</a>
+    </div>
+
+    </form>
+
+
+    </div>
+</body>
+
+</html>
